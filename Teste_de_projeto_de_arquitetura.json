@@ -1,0 +1,77 @@
+{
+  "name": "Teste de projeto de arquitetura",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -220,
+        -40
+      ],
+      "id": "81296a09-076f-4677-b2e6-a9108a777013",
+      "name": "When chat message received",
+      "webhookId": "124572b0-286e-4456-a08f-52ccacf68b3c"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "=Crie alguns render realístico para cada cômodo com essas especificações de uma sala com tv \n\nTipo de projeto: residencial\n\nEstilo desejado: minimalista\n\nTamanho do apartamento: 90 metros quadrados\n\nN° de cômodos: 2\n\nMateriais preferidos, referências, etc: Pedras  retro iluminada com parede fosca escura e luzes claras",
+        "options": {
+          "quality": "hd",
+          "size": "1024x1024",
+          "style": "vivid",
+          "returnImageUrls": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        0,
+        -40
+      ],
+      "id": "6ae8df07-0ab0-401c-a8e9-856dafdbe7a4",
+      "name": "OpenAI",
+      "alwaysOutputData": true,
+      "executeOnce": false,
+      "credentials": {
+        "openAiApi": {
+          "id": "lVI9tsNhjmp1xShy",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "9cccd120-ac76-4bba-ba1b-1a7d150f4d07",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9e526c36b6aacb8f47a2e7e15f158924700556a1db01383f0703efc5a4137601"
+  },
+  "id": "ggeAy75UY7RrKcZr",
+  "tags": []
+}
